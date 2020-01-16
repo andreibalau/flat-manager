@@ -1,20 +1,22 @@
-import mongoose from 'mongoose';
+'use strict';
+export default (sequelize, type) => {
+  const Building = sequelize.define('Building', {
+    id: {
+      type: type.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    streetName: type.STRING,
+    streetNumber: type.INTEGER,
+    number: type.INTEGER,
+    city: type.STRING,
+    county: type.STRING,
+    country: type.STRING
+  });
 
-const Building = mongoose.model(
-    "Building",
-    new mongoose.Schema({
-        address: String,
-        city: String,
-        county: String,
-        country: String,
-        name: String,
-        stairs: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Stair"
-            }
-        ]
-    })
-);
+  Building.associate = function(models) {
+    models.Building.hasMany(models.Stair);
+  };
 
-module.exports = Building;
+  return Building;
+};

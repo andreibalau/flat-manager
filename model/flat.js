@@ -1,17 +1,27 @@
-import mongoose from 'mongoose';
+'use strict';
+export default (sequelize, type) => {
+  const Flat = sequelize.define('Flat', {
+    id: {
+      type: type.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
+    name: type.STRING,
+    number: type.STRING
+  });
 
-const Flat = mongoose.model(
-    "Flat",
-    new mongoose.Schema({
-        name: String,
-        number: String,
-        persons: [
-            {
-                type: mongoose.Schema.Types.ObjectId,
-                ref: "Person"
-            }
-        ]
-    })
-);
+  Flat.associate = function (models) {
+    models.Flat.belongsTo(models.Stair, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
-module.exports = Flat;
+  Flat.associate = function(models) {
+    models.Flat.hasMany(models.Person);
+  };
+
+  return Flat;
+};

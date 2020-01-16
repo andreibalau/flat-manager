@@ -1,17 +1,12 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import router from './route/index';
-
+import Building from './model/building';
+const { Sequelize } = require('sequelize');
 const app = express();
 
-mongoose
-  .connect("mongodb://localhost/flat_db", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-  })
-  .then(() => console.log("Successfully connect to MongoDB."))
-  .catch(err => console.error("Connection error", err));
+const sequelize = new Sequelize('postgres://app:password@localhost:5432/flat');
+sequelize.authenticate();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
