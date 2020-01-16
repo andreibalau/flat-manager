@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import router from './route/index';
 
 const app = express();
 
@@ -26,5 +27,7 @@ app.use((err, req, res, next) => {
     res.status(500).send(`Error: ${err}`);
     next();
 });
+
+app.use(router);
 
 export default app;
