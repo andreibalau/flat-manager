@@ -6,10 +6,10 @@ import StairModel from './model/stair';
 
 const sequelize = new Sequelize('postgres://app:password@localhost:5432/flat');
 
-const Building = BuildingModel(sequelize, Sequelize);
-const Flat = FlatModel(sequelize, Sequelize);
-const Person = PersonModel(sequelize, Sequelize);
-const Stair = StairModel(sequelize, Sequelize);
+const buildingRepository = BuildingModel(sequelize, Sequelize);
+const flatRepository = FlatModel(sequelize, Sequelize);
+const personRepository = PersonModel(sequelize, Sequelize);
+const stairRepository = StairModel(sequelize, Sequelize);
 
 sequelize.sync({ force: true })
   .then(() => {
@@ -17,8 +17,8 @@ sequelize.sync({ force: true })
   })
 
 module.exports = {
-    Building,
-    Flat,
-    Person,
-    Stair
+  buildingRepository,
+  flatRepository,
+  personRepository,
+  stairRepository
 };

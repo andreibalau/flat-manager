@@ -1,9 +1,9 @@
-import stairRepository from '../sequelize';
+import peopleRepository from '../sequelize';
 
-export default class StairService {
+export default class PeopleService {
 
     findAll(request, response) {
-        stairRepository
+        peopleRepository
             .findAll()
             .then(res => response.json(res));
     }

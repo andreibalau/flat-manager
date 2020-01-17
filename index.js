@@ -1,7 +1,6 @@
 import express from 'express';
 import { json } from 'body-parser';
-
-import { Building, Flat, Person, Stair } from './sequelize';
+import routes from './route/index';
 
 const app = express()
 app.use(json())
@@ -15,8 +14,7 @@ app.use((err, req, res, next) => {
     res.status(500).send(`Error: ${err}`);
     next();
 });
-
-const port = 8080;
-app.listen(port, () => {
-    console.log(`Running on http://localhost:${port}`);
+routes(app);
+app.listen(8080, () => {
+    console.log(`Running`);
 })

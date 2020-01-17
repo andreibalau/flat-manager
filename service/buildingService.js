@@ -1,33 +1,27 @@
-import Building from '../model/building';
+import buildingRepository from '../sequelize';
 
-class BuildingService {
+export default class BuildingService {
 
-    create(building) {
-        return Building
-            .create(building)
-            .then(b => {
-                console.log(`Building created: ${b}`);
-                return b;
-            });
+    findAll(request, response) {
+        buildingRepository
+            .findAll()
+            .then(res => response.json(res));
     }
 
-    findAll() {
-        return Building.find();
+    create(request, response) {
+        
     }
 
-    addStair(buildingId, stair) {
-        Building
-            .findByIdAndUpdate(
-                buildingId,
-                {
-                    $push: {
-                        stairs: stair
-                    }
-                },
-                { useFindAndModify: false }
-            );
+    delete(request, response) {
+
+    }
+
+    update(request, response) {
+
+    }
+
+    findById(request, response) {
+
     }
 
 }
-const buildingService = new BuildingService();
-export default buildingService;

@@ -1,9 +1,9 @@
-import stairRepository from '../sequelize';
+import flatRepository from '../sequelize';
 
-export default class StairService {
+export default class FlatService {
 
     findAll(request, response) {
-        stairRepository
+        flatRepository
             .findAll()
             .then(res => response.json(res));
     }
