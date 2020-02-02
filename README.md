@@ -1,2 +1,2 @@
 # flat-manager
-Node.js backend application for flat management
+backend application for flat management
