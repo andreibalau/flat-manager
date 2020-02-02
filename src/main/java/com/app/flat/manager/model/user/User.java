@@ -10,7 +10,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -45,7 +44,6 @@ public class User {
 	@Column(name = "phone")
 	private String phone;
 	@NotBlank
-	@Min(6)
 	@Column(nullable = false, name = "password")
 	private String password;
 	@NotNull
@@ -56,5 +54,8 @@ public class User {
 	@ManyToOne
 	@JoinColumn(nullable = false, name = "flat_id")
 	private Flat flat;
+	@NotNull
+	@Column(nullable = false, name = "is_paid")
+	private Boolean paid;
 
 }
