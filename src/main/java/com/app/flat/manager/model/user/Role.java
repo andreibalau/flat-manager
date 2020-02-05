@@ -6,5 +6,6 @@ package com.app.flat.manager.model.user;
  */
 public enum Role {
 	ROLE_PROPRIETARY,
-	ROLE_ADMIN
+	ROLE_STAIR_PRESIDENT,
+	ROLE_ADMINISTRATOR
 }

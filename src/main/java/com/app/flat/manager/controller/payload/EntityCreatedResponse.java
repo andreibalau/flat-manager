@@ -1,4 +1,4 @@
-package com.app.flat.manager.controller.dto;
+package com.app.flat.manager.controller.payload;
 
 import javax.validation.constraints.NotNull;
 
@@ -15,7 +15,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class EntityCreated {
+public class EntityCreatedResponse {
 
 	@NotNull
 	private Long id;
