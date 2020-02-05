@@ -1,5 +1,9 @@
 package com.app.flat.manager.model.asociation;
 
+import com.app.flat.manager.model.address.City;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,12 +17,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.app.flat.manager.model.address.City;
-import com.app.flat.manager.model.address.Country;
-import com.app.flat.manager.model.address.County;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Flat Manager
@@ -44,14 +42,11 @@ public class Building {
 	@NotNull
 	@OneToMany(mappedBy = "building", cascade = CascadeType.ALL)
 	private Set<Stair> stairs = new HashSet<>();
+	@NotBlank
+	@Column(nullable = false, name = "address")
+	private String address;
 	@ManyToOne
 	@JoinColumn(name = "city_id")
 	private City city;
-	@ManyToOne
-	@JoinColumn(name = "county_id")
-	private County county;
-	@ManyToOne
-	@JoinColumn(name = "country_id")
-	private Country country;
 
 }

@@ -1,12 +1,12 @@
 package com.app.flat.manager.controller.payload.user;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
 import com.app.flat.manager.model.user.Role;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * Flat Manager
@@ -18,20 +18,15 @@ public class RegisterUserRequest {
 
 	@NotBlank
 	private String firstName;
-
 	@NotBlank
 	private String lastName;
-
 	@Email
 	@NotBlank
 	private String email;
-
-	private String phone;
-
 	@NotBlank
 	private String password;
-
 	@NotNull
 	private Role role;
+	private String phone;
 
 }

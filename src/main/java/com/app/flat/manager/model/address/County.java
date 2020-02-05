@@ -1,5 +1,6 @@
 package com.app.flat.manager.model.address;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,7 +38,7 @@ public class County {
 	@Column(nullable = false, unique = true)
 	private String abbrev;
 	@NotNull
-	@OneToMany(mappedBy = "county")
+	@OneToMany(mappedBy = "county", cascade = CascadeType.ALL)
 	private Set<City> cities = new HashSet<>();
 	@NotNull
 	@ManyToOne
