@@ -1,5 +1,9 @@
 package com.app.flat.manager.model.asociation;
 
+import com.app.flat.manager.model.user.User;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,10 +17,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
-
-import com.app.flat.manager.model.user.User;
-import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Flat Manager
@@ -42,9 +42,8 @@ public class Stair {
 	@ManyToOne
 	@JoinColumn(name = "building_id", nullable = false)
 	private Building building;
-	@NotNull
 	@ManyToOne
-	@JoinColumn(name = "administrator_id", nullable = false)
+	@JoinColumn(name = "administrator_id")
 	private User administrator;
 
 }
