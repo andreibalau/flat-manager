@@ -4,7 +4,7 @@ import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 05.02.2020
  */
 @Getter

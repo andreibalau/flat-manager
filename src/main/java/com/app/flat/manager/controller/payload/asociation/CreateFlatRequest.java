@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 06.02.2020
  */
 @Getter
@@ -26,6 +26,8 @@ public class CreateFlatRequest {
     @NotNull
     private Double usedSurface;
     @NotNull
-    private List<ContorDto> contors;
+    private List<@NotNull Long> contorIds;
+    @NotNull
+    private List<@NotNull Long> userIds;
 
 }

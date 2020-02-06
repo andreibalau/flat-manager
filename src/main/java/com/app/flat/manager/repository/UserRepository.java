@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.Optional;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 05.02.2020
  */
 public interface UserRepository extends JpaRepository<User, Long> {

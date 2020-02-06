@@ -15,11 +15,14 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
  * Flat Manager
  * Created by catalin on 2/2/2020
  */
-@RequestMapping("/api/v1/users")
+@RequestMapping(
+		value = "/api/v1/users",
+		consumes = APPLICATION_JSON_VALUE,
+		produces = APPLICATION_JSON_VALUE)
 public interface UserApi {
 
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping(consumes = APPLICATION_JSON_VALUE, produces = APPLICATION_JSON_VALUE)
+	@PostMapping
 	void register(@RequestBody @Valid RegisterUserRequest request);
 
 }

@@ -3,12 +3,13 @@ package com.app.flat.manager.controller.payload.asociation;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 06.02.2020
  */
 @Getter
@@ -22,7 +23,7 @@ public class CreateBuildingRequest {
     @NotBlank
     private String address;
     @NotNull
-    private List<CreateStairRequest> stairs;
+    private List<@Valid CreateStairRequest> stairs;
     private Long cityId;
 
 }

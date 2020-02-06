@@ -8,7 +8,7 @@ import lombok.Setter;
 import javax.validation.constraints.NotBlank;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 05.02.2020
  */
 @Getter

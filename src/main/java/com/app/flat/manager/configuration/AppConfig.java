@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 05.02.2020
  */
 @Configuration

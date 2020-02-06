@@ -3,7 +3,7 @@ package com.app.flat.manager.exception;
 import org.springframework.http.HttpStatus;
 
 /**
- * flat-manager
+ * Flat Manager
  * Created by catalin on 05.02.2020
  */
 public class UserException extends AppException {

@@ -1,12 +1,12 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import com.app.flat.manager.model.asociation.ServiceType;
+import com.app.flat.manager.controller.payload.user.UserDto;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.math.BigDecimal;
+import java.util.List;
 
 /**
  * Flat Manager
@@ -14,19 +14,14 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
-public class ContorDto {
+public class StairDto {
 
-    @NotNull
-    private Long id;
     @NotBlank
     private String name;
-    @NotBlank
-    private String serial;
     @NotNull
-    private ServiceType type;
+    private Long buildingId;
     @NotNull
-    private BigDecimal initialIndex;
-    @NotNull
-    private BigDecimal currentIndex;
+    private List<@NotNull FlatDto> flats;
+    private UserDto administrator;
 
 }
