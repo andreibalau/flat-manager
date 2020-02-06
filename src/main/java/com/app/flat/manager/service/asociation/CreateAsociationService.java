@@ -1,5 +1,6 @@
 package com.app.flat.manager.service.asociation;
 
+import com.app.flat.manager.controller.payload.EntityCreatedResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateAsociationRequest;
 import com.app.flat.manager.model.address.City;
 import com.app.flat.manager.model.asociation.Asociation;
@@ -24,12 +25,13 @@ public class CreateAsociationService {
     private final RegisterService registerService;
     private final ModelMapper modelMapper;
 
-    public void create(CreateAsociationRequest request) {
+    public EntityCreatedResponse create(CreateAsociationRequest request) {
         User user = registerService.registerAndReturn(request.getUser());
         Asociation asociation = modelMapper.map(request, Asociation.class);
         asociation.setCity(findCity(request.getCityId()));
         asociation.setPresident(user);
-        asociationRepository.save(asociation);
+        Long id = asociationRepository.save(asociation).getId();
+        return new EntityCreatedResponse(id);
     }
 
     private City findCity(Long id) {

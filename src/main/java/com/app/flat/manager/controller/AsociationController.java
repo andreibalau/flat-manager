@@ -1,5 +1,10 @@
 package com.app.flat.manager.controller;
 
+import com.app.flat.manager.controller.api.AsociationApi;
+import com.app.flat.manager.controller.payload.EntityCreatedResponse;
+import com.app.flat.manager.controller.payload.asociation.CreateAsociationRequest;
+import com.app.flat.manager.service.asociation.CreateAsociationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -7,5 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
  * Created by catalin on 2/2/2020
  */
 @RestController
-public class AsociationController {
+@RequiredArgsConstructor
+public class AsociationController implements AsociationApi {
+
+	private final CreateAsociationService createAsociationService;
+
+	@Override
+	public EntityCreatedResponse create(CreateAsociationRequest request) {
+		return createAsociationService.create(request);
+	}
+
 }
