@@ -5,6 +5,7 @@ import com.app.flat.manager.controller.payload.EntityCreatedResponse;
 import com.app.flat.manager.controller.payload.asociation.AsociationResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateAsociationRequest;
 import com.app.flat.manager.service.asociation.CreateAsociationService;
+import com.app.flat.manager.service.asociation.FindAsociationService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class AsociationController implements AsociationApi {
 
 	private final CreateAsociationService createAsociationService;
+	private final FindAsociationService findAsociationService;
 
 	@Override
 	public EntityCreatedResponse create(CreateAsociationRequest request) {
@@ -25,7 +27,7 @@ public class AsociationController implements AsociationApi {
 
 	@Override
 	public AsociationResponse findById(Long id) {
-		return null;
+		return findAsociationService.findById(id);
 	}
 
 }

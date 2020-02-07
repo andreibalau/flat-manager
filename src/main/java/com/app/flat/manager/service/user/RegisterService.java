@@ -1,11 +1,11 @@
 package com.app.flat.manager.service.user;
 
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
+import com.app.flat.manager.converter.user.UserConverter;
 import com.app.flat.manager.exception.UserException;
 import com.app.flat.manager.model.user.User;
 import com.app.flat.manager.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
 /**
@@ -18,7 +18,7 @@ public class RegisterService {
 
     private final EmailCheckService emailCheckService;
     private final UserRepository userRepository;
-    private final ModelMapper modelMapper;
+    private final UserConverter userConverter;
 
     public void register(RegisterUserRequest request) {
         createUser(request);
@@ -33,7 +33,7 @@ public class RegisterService {
         if (exists) {
             throw UserException.emailAlreadyExists();
         }
-        User user = modelMapper.map(request, User.class);
+        User user = userConverter.fromRegisterUserRequestToUser(request);
         return userRepository.save(user);
     }
 
