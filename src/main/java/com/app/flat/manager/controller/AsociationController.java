@@ -2,6 +2,7 @@ package com.app.flat.manager.controller;
 
 import com.app.flat.manager.controller.api.AsociationApi;
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
+import com.app.flat.manager.controller.payload.asociation.AsociationResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateAsociationRequest;
 import com.app.flat.manager.service.asociation.CreateAsociationService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +21,11 @@ public class AsociationController implements AsociationApi {
 	@Override
 	public EntityCreatedResponse create(CreateAsociationRequest request) {
 		return createAsociationService.create(request);
+	}
+
+	@Override
+	public AsociationResponse findById(Long id) {
+		return null;
 	}
 
 }

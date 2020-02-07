@@ -1,4 +1,4 @@
-package com.app.flat.manager.controller.payload.address;
+package com.app.flat.manager.controller.payload.user;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -12,15 +12,13 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
-public class CityDto {
+public class UserResponse {
 
     @NotNull
     private Long id;
     @NotBlank
-    private String name;
+    private String firstName;
     @NotBlank
-    private String countyName;
-    @NotBlank
-    private String countyAbbrev;
+    private String lastName;
 
 }

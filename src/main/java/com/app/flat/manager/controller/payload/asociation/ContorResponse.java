@@ -14,7 +14,7 @@ import java.math.BigDecimal;
  */
 @Getter
 @Setter
-public class ContorDto {
+public class ContorResponse {
 
     @NotNull
     private Long id;

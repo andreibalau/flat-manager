@@ -1,21 +1,22 @@
 package com.app.flat.manager.controller.api;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+import javax.validation.Valid;
+import java.util.List;
+
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
 import com.app.flat.manager.controller.payload.service.CreateServiceRequest;
-import com.app.flat.manager.controller.payload.service.PreviewServiceDto;
-import com.app.flat.manager.controller.payload.service.ServiceDto;
+import com.app.flat.manager.controller.payload.service.PreviewServiceResponse;
+import com.app.flat.manager.controller.payload.service.ServiceResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import javax.validation.Valid;
-import java.util.List;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * Flat Manager
@@ -31,10 +32,14 @@ public interface ServiceApi {
 	@PostMapping
 	EntityCreatedResponse create(@RequestBody @Valid CreateServiceRequest request);
 
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping(value = "/{id}")
+	void delete(@PathVariable Long id);
+
 	@GetMapping
-	List<PreviewServiceDto> findAll();
+	List<PreviewServiceResponse> findAll();
 
 	@GetMapping(value = "/{id}")
-	ServiceDto findById(@PathVariable Long id);
+	ServiceResponse findById(@PathVariable Long id);
 
 }

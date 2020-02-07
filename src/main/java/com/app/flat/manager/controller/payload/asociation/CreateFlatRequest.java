@@ -1,11 +1,11 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
@@ -26,8 +26,8 @@ public class CreateFlatRequest {
     @NotNull
     private Double usedSurface;
     @NotNull
-    private List<@NotNull Long> contorIds;
+    private Set<@NotNull Long> contorIds;
     @NotNull
-    private List<@NotNull Long> userIds;
+    private Set<@NotNull Long> userIds;
 
 }

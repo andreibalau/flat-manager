@@ -1,12 +1,13 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import com.app.flat.manager.controller.payload.user.UserDto;
-import lombok.Getter;
-import lombok.Setter;
-
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
+
+import com.app.flat.manager.controller.payload.user.UserResponse;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class FlatDto {
+public class FlatResponse {
 
     @NotNull
     private Long id;
@@ -29,8 +30,8 @@ public class FlatDto {
     @NotNull
     private Double usedSurface;
     @NotNull
-    private List<@NotNull ContorDto> contors;
+    private Set<@NotNull @Valid ContorResponse> contors;
     @NotNull
-    private List<@NotNull UserDto> users;
+    private Set<@NotNull @Valid UserResponse> users;
 
 }

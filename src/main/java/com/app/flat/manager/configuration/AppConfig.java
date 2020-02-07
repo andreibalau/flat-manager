@@ -1,7 +1,6 @@
 package com.app.flat.manager.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
  * Created by catalin on 05.02.2020
  */
 @Configuration
-@RequiredArgsConstructor
 public class AppConfig {
 
     @Bean

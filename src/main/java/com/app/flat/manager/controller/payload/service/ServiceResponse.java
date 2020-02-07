@@ -14,7 +14,7 @@ import javax.validation.constraints.NotNull;
  */
 @Getter
 @Setter
-public class ServiceDto {
+public class ServiceResponse {
 
 	@NotNull
 	private Long id;

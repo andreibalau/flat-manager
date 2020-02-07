@@ -1,12 +1,12 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
+
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
@@ -20,7 +20,7 @@ public class CreateStairRequest {
     @NotBlank
     private String name;
     @NotNull
-    private List<@Valid CreateFlatRequest> flats;
+    private Set<@NotNull @Valid CreateFlatRequest> flats;
     @NotNull
     private Long administratorId;
 

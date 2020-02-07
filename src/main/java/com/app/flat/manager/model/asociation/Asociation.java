@@ -49,7 +49,7 @@ public class Asociation {
 	private City city;
 	@NotNull
 	@OneToMany(mappedBy = "asociation")
-	private Set<Building> buildings = new HashSet<>();
+	private Set<@NotNull Building> buildings = new HashSet<>();
 	@NotNull
 	@ManyToMany
 	@JoinTable(
@@ -57,6 +57,6 @@ public class Asociation {
 			joinColumns = @JoinColumn(name = "service_id", nullable = false),
 			inverseJoinColumns = @JoinColumn(name = "asociation_id", nullable = false)
 	)
-	private Set<Service> services = new HashSet<>();
+	private Set<@NotNull Service> services = new HashSet<>();
 
 }

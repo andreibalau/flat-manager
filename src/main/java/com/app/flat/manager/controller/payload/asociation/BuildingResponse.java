@@ -1,12 +1,13 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import com.app.flat.manager.controller.payload.address.CityDto;
-import lombok.Getter;
-import lombok.Setter;
-
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.List;
+import java.util.Set;
+
+import com.app.flat.manager.controller.payload.address.CityResponse;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
@@ -14,7 +15,7 @@ import java.util.List;
  */
 @Getter
 @Setter
-public class BuildingDto {
+public class BuildingResponse {
 
     @NotNull
     private Long id;
@@ -25,7 +26,7 @@ public class BuildingDto {
     @NotBlank
     private String address;
     @NotNull
-    private List<@NotNull StairDto> stairs;
-    private CityDto city;
+    private Set<@NotNull @Valid StairResponse> stairs;
+    private CityResponse city;
 
 }

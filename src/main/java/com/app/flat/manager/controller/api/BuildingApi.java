@@ -1,7 +1,14 @@
 package com.app.flat.manager.controller.api;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+import javax.validation.Valid;
+import java.util.List;
+
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
+import com.app.flat.manager.controller.payload.asociation.BuildingResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateBuildingRequest;
+import com.app.flat.manager.controller.payload.asociation.PreviewBuildingResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,10 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import javax.validation.Valid;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * Flat Manager
@@ -34,6 +37,9 @@ public interface BuildingApi {
     void delete(@PathVariable Long id);
 
     @GetMapping(value = "/{id}")
-    void findById();
+    BuildingResponse findById(@PathVariable Long id);
+
+    @GetMapping
+    List<PreviewBuildingResponse> findAll();
 
 }
