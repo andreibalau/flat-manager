@@ -24,7 +24,7 @@ public class FindAsociationService {
 		return asociationConverter.fromAsociationToAsociationResponse(asociation);
 	}
 
-	private Asociation findAsociationOrThrow(Long id) {
+	public Asociation findAsociationOrThrow(Long id) {
 		return asociationRepository
 				.findById(id)
 				.orElseThrow(AsociationException::asociationNotFound);
