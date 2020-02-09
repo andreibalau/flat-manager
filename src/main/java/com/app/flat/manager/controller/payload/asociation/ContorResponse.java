@@ -1,6 +1,6 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import com.app.flat.manager.model.asociation.ServiceType;
+import com.app.flat.manager.model.utility.UtilityType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,7 +23,7 @@ public class ContorResponse {
     @NotBlank
     private String serial;
     @NotNull
-    private ServiceType type;
+    private UtilityType type;
     @NotNull
     private BigDecimal initialIndex;
     @NotNull

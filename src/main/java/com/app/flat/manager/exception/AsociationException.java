@@ -27,4 +27,9 @@ public class AsociationException extends AppException {
 	public static AsociationException flatNotFound() {
 		return new AsociationException("Flat not found!", HttpStatus.NOT_FOUND);
 	}
+
+	public static AsociationException utilityNotFound() {
+		return new AsociationException("Utility not found!", HttpStatus.NOT_FOUND);
+	}
+
 }

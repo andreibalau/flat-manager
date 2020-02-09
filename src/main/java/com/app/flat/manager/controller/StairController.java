@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.app.flat.manager.controller.api.StairApi;
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
-import com.app.flat.manager.controller.payload.asociation.CreateStairRequest;
-import com.app.flat.manager.controller.payload.asociation.PreviewStairResponse;
-import com.app.flat.manager.controller.payload.asociation.StairResponse;
-import com.app.flat.manager.service.asociation.CreateStairService;
-import com.app.flat.manager.service.asociation.DeleteStairService;
-import com.app.flat.manager.service.asociation.FindStairService;
+import com.app.flat.manager.controller.payload.stair.CreateStairRequest;
+import com.app.flat.manager.controller.payload.stair.PreviewStairResponse;
+import com.app.flat.manager.controller.payload.stair.StairResponse;
+import com.app.flat.manager.service.stair.CreateStairService;
+import com.app.flat.manager.service.stair.DeleteStairService;
+import com.app.flat.manager.service.stair.FindStairService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

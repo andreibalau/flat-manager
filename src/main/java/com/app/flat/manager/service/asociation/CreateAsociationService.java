@@ -2,7 +2,7 @@ package com.app.flat.manager.service.asociation;
 
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateAsociationRequest;
-import com.app.flat.manager.converter.asociation.AsociationConverter;
+import com.app.flat.manager.converter.AsociationConverter;
 import com.app.flat.manager.model.address.City;
 import com.app.flat.manager.model.asociation.Asociation;
 import com.app.flat.manager.model.user.User;

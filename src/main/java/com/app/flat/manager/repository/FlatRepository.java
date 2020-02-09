@@ -2,7 +2,7 @@ package com.app.flat.manager.repository;
 
 import java.util.List;
 
-import com.app.flat.manager.model.asociation.Flat;
+import com.app.flat.manager.model.flat.Flat;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

@@ -1,4 +1,4 @@
-package com.app.flat.manager.model.user;
+package com.app.flat.manager.model.utility;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,9 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.math.BigDecimal;
 
 import com.app.flat.manager.model.flat.Flat;
 import lombok.Getter;
@@ -19,43 +19,37 @@ import lombok.Setter;
 
 /**
  * Flat Manager
- * Created by catalin on 1/20/2020
+ * Created by catalin on 2/2/2020
  */
 @Getter
 @Setter
 @Entity
-@Table(name = "users")
-public class User {
+@Table(name = "contors")
+public class Contor {
 
 	@Id
 	@NotNull
 	@GeneratedValue
 	private Long id;
 	@NotBlank
-	@Column(nullable = false, name = "first_name")
-	private String firstName;
-	@NotBlank
-	@Column(nullable = false, name = "last_name")
-	private String lastName;
-	@NotNull
-	@Email
-	@Column(nullable = false, unique = true, name = "email")
-	private String email;
-	@Column(name = "phone")
-	private String phone;
-	@NotBlank
-	@Column(nullable = false, name = "password")
-	private String password;
+	@Column(nullable = false, name = "name")
+	private String name;
 	@NotNull
 	@Enumerated(value = EnumType.STRING)
-	@Column(nullable = false, name = "user_role")
-	private Role role;
+	@Column(nullable = false, name = "contor_type")
+	private UtilityType type;
+	@NotBlank
+	@Column(nullable = false, name = "serial")
+	private String serial;
+	@NotNull
+	@Column(nullable = false, name = "initial_index")
+	private BigDecimal initialIndex;
+	@NotNull
+	@Column(nullable = false, name = "current_index")
+	private BigDecimal currentIndex;
 	@NotNull
 	@ManyToOne
 	@JoinColumn(nullable = false, name = "flat_id")
 	private Flat flat;
-	@NotNull
-	@Column(nullable = false, name = "is_paid")
-	private Boolean paid;
 
 }

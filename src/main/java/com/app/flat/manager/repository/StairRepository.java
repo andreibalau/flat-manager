@@ -2,7 +2,7 @@ package com.app.flat.manager.repository;
 
 import java.util.List;
 
-import com.app.flat.manager.model.asociation.Stair;
+import com.app.flat.manager.model.stair.Stair;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

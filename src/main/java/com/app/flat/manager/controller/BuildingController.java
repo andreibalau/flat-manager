@@ -4,12 +4,12 @@ import java.util.List;
 
 import com.app.flat.manager.controller.api.BuildingApi;
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
-import com.app.flat.manager.controller.payload.asociation.BuildingResponse;
-import com.app.flat.manager.controller.payload.asociation.CreateBuildingRequest;
-import com.app.flat.manager.controller.payload.asociation.PreviewBuildingResponse;
-import com.app.flat.manager.service.asociation.CreateBuildingService;
-import com.app.flat.manager.service.asociation.DeleteBuildingService;
-import com.app.flat.manager.service.asociation.FindBuildingService;
+import com.app.flat.manager.controller.payload.building.BuildingResponse;
+import com.app.flat.manager.controller.payload.building.CreateBuildingRequest;
+import com.app.flat.manager.controller.payload.building.PreviewBuildingResponse;
+import com.app.flat.manager.service.building.CreateBuildingService;
+import com.app.flat.manager.service.building.DeleteBuildingService;
+import com.app.flat.manager.service.building.FindBuildingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -6,7 +6,8 @@ import javax.validation.constraints.NotNull;
 import java.util.Set;
 
 import com.app.flat.manager.controller.payload.address.CityResponse;
-import com.app.flat.manager.controller.payload.service.ServiceResponse;
+import com.app.flat.manager.controller.payload.building.BuildingResponse;
+import com.app.flat.manager.controller.payload.utility.UtilityResponse;
 import com.app.flat.manager.controller.payload.user.UserResponse;
 import lombok.Getter;
 import lombok.Setter;
@@ -31,5 +32,5 @@ public class AsociationResponse {
 	@NotNull
 	private Set<@NotNull @Valid BuildingResponse> buildings;
 	@NotNull
-	private Set<@NotNull @Valid ServiceResponse> services;
+	private Set<@NotNull @Valid UtilityResponse> services;
 }

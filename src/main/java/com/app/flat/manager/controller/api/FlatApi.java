@@ -6,9 +6,9 @@ import javax.validation.Valid;
 import java.util.List;
 
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
-import com.app.flat.manager.controller.payload.asociation.CreateFlatRequest;
-import com.app.flat.manager.controller.payload.asociation.FlatResponse;
-import com.app.flat.manager.controller.payload.asociation.PreviewFlatResponse;
+import com.app.flat.manager.controller.payload.flat.CreateFlatRequest;
+import com.app.flat.manager.controller.payload.flat.FlatResponse;
+import com.app.flat.manager.controller.payload.flat.PreviewFlatResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;

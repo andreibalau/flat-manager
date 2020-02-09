@@ -1,7 +1,7 @@
 package com.app.flat.manager.service.user;
 
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
-import com.app.flat.manager.converter.user.UserConverter;
+import com.app.flat.manager.converter.UserConverter;
 import com.app.flat.manager.exception.UserException;
 import com.app.flat.manager.model.user.User;
 import com.app.flat.manager.repository.UserRepository;

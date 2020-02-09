@@ -1,7 +1,7 @@
 package com.app.flat.manager.service.asociation;
 
 import com.app.flat.manager.controller.payload.asociation.AsociationResponse;
-import com.app.flat.manager.converter.asociation.AsociationConverter;
+import com.app.flat.manager.converter.AsociationConverter;
 import com.app.flat.manager.exception.AsociationException;
 import com.app.flat.manager.model.asociation.Asociation;
 import com.app.flat.manager.repository.AsociationRepository;
