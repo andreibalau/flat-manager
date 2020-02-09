@@ -16,4 +16,8 @@ public class UserException extends AppException {
         return new UserException("Email already exists!", HttpStatus.BAD_REQUEST);
     }
 
+    public static UserException userNotFound() {
+        return new UserException("User not found!", HttpStatus.NOT_FOUND);
+    }
+
 }

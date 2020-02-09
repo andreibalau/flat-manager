@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import com.app.flat.manager.controller.payload.asociation.BuildingResponse;
 import com.app.flat.manager.controller.payload.asociation.PreviewBuildingResponse;
 import com.app.flat.manager.converter.asociation.BuildingConverter;
-import com.app.flat.manager.exception.BuildingException;
+import com.app.flat.manager.exception.AsociationException;
 import com.app.flat.manager.model.asociation.Building;
 import com.app.flat.manager.repository.BuildingRepository;
 import lombok.RequiredArgsConstructor;
@@ -39,7 +39,7 @@ public class FindBuildingService {
 	public Building findBuildingOrThrow(Long id) {
 		return buildingRepository
 				.findById(id)
-				.orElseThrow(BuildingException::buildingNotFound);
+				.orElseThrow(AsociationException::buildingNotFound);
 	}
 
 }

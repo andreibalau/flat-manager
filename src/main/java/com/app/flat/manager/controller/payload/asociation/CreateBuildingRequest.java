@@ -1,9 +1,7 @@
 package com.app.flat.manager.controller.payload.asociation;
 
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -22,8 +20,6 @@ public class CreateBuildingRequest {
     private String name;
     @NotBlank
     private String address;
-    @NotNull
-    private Set<@NotNull @Valid CreateStairRequest> stairs;
     private Long cityId;
 
 }
