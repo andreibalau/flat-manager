@@ -1,5 +1,8 @@
 package com.app.flat.manager.service.user;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.app.flat.manager.exception.UserException;
 import com.app.flat.manager.model.user.User;
 import com.app.flat.manager.repository.UserRepository;
@@ -20,6 +23,10 @@ public class FindUserService {
 		return userRepository
 				.findById(id)
 				.orElseThrow(UserException::userNotFound);
+	}
+
+	public Set<User> findUsers(Set<Long> ids) {
+		return new HashSet<>(userRepository.findAllById(ids));
 	}
 
 	public User findUserOrThrow(String email) {

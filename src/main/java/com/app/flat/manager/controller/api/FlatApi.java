@@ -6,7 +6,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 import com.app.flat.manager.controller.payload.EntityCreatedResponse;
-import com.app.flat.manager.controller.payload.asociation.CreateBuildingRequest;
+import com.app.flat.manager.controller.payload.asociation.CreateFlatRequest;
 import com.app.flat.manager.controller.payload.asociation.FlatResponse;
 import com.app.flat.manager.controller.payload.asociation.PreviewFlatResponse;
 import org.springframework.http.HttpStatus;
@@ -31,7 +31,7 @@ public interface FlatApi {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    EntityCreatedResponse create(@RequestBody @Valid CreateBuildingRequest request);
+    EntityCreatedResponse create(@RequestBody @Valid CreateFlatRequest request);
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping(value = "/{id}")

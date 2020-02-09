@@ -24,4 +24,7 @@ public class AsociationException extends AppException {
 		return new AsociationException("Stair not found!", HttpStatus.NOT_FOUND);
 	}
 
+	public static AsociationException flatNotFound() {
+		return new AsociationException("Flat not found!", HttpStatus.NOT_FOUND);
+	}
 }

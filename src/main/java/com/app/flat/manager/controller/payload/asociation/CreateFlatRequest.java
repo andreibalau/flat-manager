@@ -29,5 +29,7 @@ public class CreateFlatRequest {
     private Set<@NotNull Long> contorIds;
     @NotNull
     private Set<@NotNull Long> userIds;
+    @NotNull
+    private Long stairId;
 
 }

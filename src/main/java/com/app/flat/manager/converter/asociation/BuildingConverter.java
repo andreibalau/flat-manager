@@ -3,8 +3,8 @@ package com.app.flat.manager.converter.asociation;
 import com.app.flat.manager.controller.payload.asociation.BuildingResponse;
 import com.app.flat.manager.controller.payload.asociation.CreateBuildingRequest;
 import com.app.flat.manager.controller.payload.asociation.PreviewBuildingResponse;
+import com.app.flat.manager.converter.BaseConverter;
 import com.app.flat.manager.model.asociation.Building;
-import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
@@ -13,21 +13,22 @@ import org.springframework.stereotype.Component;
  * Created by catalin on 2/7/2020
  */
 @Component
-@RequiredArgsConstructor
-public class BuildingConverter {
+public class BuildingConverter extends BaseConverter {
 
-	private final ModelMapper modelMapper;
+	public BuildingConverter(ModelMapper modelMapper) {
+		super(modelMapper);
+	}
 
 	public BuildingResponse fromBuildingToBuildingResponse(Building building) {
-		return modelMapper.map(building, BuildingResponse.class);
+		return map(building, BuildingResponse.class);
 	}
 
 	public PreviewBuildingResponse fromBuildingToPreviewBuildingResponse(Building building) {
-		return modelMapper.map(building, PreviewBuildingResponse.class);
+		return map(building, PreviewBuildingResponse.class);
 	}
 
 	public Building fromCreateBuildingRequestToBuilding(CreateBuildingRequest request) {
-		return modelMapper.map(request, Building.class);
+		return map(request, Building.class);
 	}
 
 
