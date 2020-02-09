@@ -5,7 +5,6 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
 
-import com.app.flat.manager.controller.payload.asociation.ContorResponse;
 import com.app.flat.manager.controller.payload.user.UserResponse;
 import lombok.Getter;
 import lombok.Setter;

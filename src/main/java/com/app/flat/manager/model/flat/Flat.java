@@ -14,7 +14,6 @@ import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
 
-import com.app.flat.manager.model.utility.Contor;
 import com.app.flat.manager.model.stair.Stair;
 import com.app.flat.manager.model.user.User;
 import lombok.Getter;

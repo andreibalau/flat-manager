@@ -1,12 +1,5 @@
 package com.app.flat.manager.model.asociation;
 
-import com.app.flat.manager.model.address.City;
-import com.app.flat.manager.model.building.Building;
-import com.app.flat.manager.model.user.User;
-import com.app.flat.manager.model.utility.Utility;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -21,6 +14,13 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.app.flat.manager.model.address.City;
+import com.app.flat.manager.model.building.Building;
+import com.app.flat.manager.model.user.User;
+import com.app.flat.manager.model.utility.Utility;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
@@ -55,8 +55,8 @@ public class Asociation {
 	@NotNull
 	@ManyToMany
 	@JoinTable(
-			name = "asociations_services",
-			joinColumns = @JoinColumn(name = "service_id", nullable = false),
+			name = "asociations_utilities",
+			joinColumns = @JoinColumn(name = "utility_id", nullable = false),
 			inverseJoinColumns = @JoinColumn(name = "asociation_id", nullable = false)
 	)
 	private Set<@NotNull Utility> utilities = new HashSet<>();

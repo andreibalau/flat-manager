@@ -1,4 +1,4 @@
-package com.app.flat.manager.controller.payload.asociation;
+package com.app.flat.manager.controller.payload.flat;
 
 import com.app.flat.manager.model.utility.UtilityType;
 import lombok.Getter;

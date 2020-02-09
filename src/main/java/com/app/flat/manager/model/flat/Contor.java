@@ -1,4 +1,4 @@
-package com.app.flat.manager.model.utility;
+package com.app.flat.manager.model.flat;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 
-import com.app.flat.manager.model.flat.Flat;
+import com.app.flat.manager.model.utility.UtilityType;
 import lombok.Getter;
 import lombok.Setter;
 

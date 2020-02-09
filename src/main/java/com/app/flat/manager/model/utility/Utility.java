@@ -40,13 +40,13 @@ public class Utility {
 	private Uom uom;
 	@NotNull
 	@Enumerated(value = EnumType.STRING)
-	@Column(nullable = false, name = "service_type")
+	@Column(nullable = false, name = "utility_type")
 	private UtilityType type;
 	@NotNull
 	@Column(nullable = false, name = "price")
 	private Double price;
 	@NotNull
-	@ManyToMany(mappedBy = "services")
+	@ManyToMany(mappedBy = "utilities")
 	private Set<Asociation> asociations = new HashSet<>();
 
 }

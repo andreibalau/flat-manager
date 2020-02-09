@@ -1,5 +1,6 @@
 package com.app.flat.manager.controller.payload.flat;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Set;
@@ -26,7 +27,7 @@ public class CreateFlatRequest {
     @NotNull
     private Double usedSurface;
     @NotNull
-    private Set<@NotNull Long> contorIds;
+    private Set<@NotNull @Valid CreateContorRequest> contors;
     @NotNull
     private Set<@NotNull Long> userIds;
     @NotNull
