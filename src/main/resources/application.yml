@@ -17,3 +17,5 @@ spring:
         jdbc:
           lob:
             non_contextual_creation: true
+jwt:
+  secret: 70B12EA3F894B7F22FC57F33166161AB59F9D269CBF7D492388ECDB8CB267503

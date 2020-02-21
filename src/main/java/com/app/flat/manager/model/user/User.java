@@ -1,6 +1,8 @@
 package com.app.flat.manager.model.user;
 
+import javax.persistence.CollectionTable;
 import javax.persistence.Column;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +14,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+import java.util.Set;
 
 import com.app.flat.manager.model.flat.Flat;
 import lombok.Getter;
@@ -47,9 +50,11 @@ public class User {
 	@Column(nullable = false, name = "password")
 	private String password;
 	@NotNull
-	@Enumerated(value = EnumType.STRING)
-	@Column(nullable = false, name = "user_role")
-	private Role role;
+	@ElementCollection(targetClass = Role.class)
+	@CollectionTable(name = "user_role",
+			joinColumns = @JoinColumn(name = "user_id"))
+	@Enumerated(EnumType.STRING)
+	private Set<Role> roles;
 	@NotNull
 	@ManyToOne
 	@JoinColumn(nullable = false, name = "flat_id")

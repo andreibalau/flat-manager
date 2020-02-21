@@ -1,15 +1,15 @@
 package com.app.flat.manager.controller.api;
 
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+import javax.validation.Valid;
+
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
-
-import javax.validation.Valid;
-
-import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
 /**
  * Flat Manager
@@ -22,7 +22,7 @@ import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 public interface UserApi {
 
 	@ResponseStatus(HttpStatus.CREATED)
-	@PostMapping
+	@PostMapping("/register")
 	void register(@RequestBody @Valid RegisterUserRequest request);
 
 }
