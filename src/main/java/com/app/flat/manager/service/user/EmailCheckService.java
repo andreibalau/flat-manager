@@ -12,12 +12,12 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class EmailCheckService {
 
-    private final UserRepository repository;
+	private final UserRepository repository;
 
-    public boolean exists(String email) {
-        return repository
-                .findByEmail(email)
-                .isPresent();
-    }
+	public boolean exists(String email) {
+		return repository
+				.findByEmail(email)
+				.isPresent();
+	}
 
 }

@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-import com.app.flat.manager.controller.payload.user.UserDto;
+import com.app.flat.manager.model.user.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -41,9 +41,9 @@ public class JwtTokenUtil {
 		return claimsResolver.apply(claims);
 	}
 
-	public String generateToken(UserDto userDto) {
+	public String generateToken(User user) {
 		Map<String, Object> claims = new HashMap<>();
-		return doGenerateToken(claims, userDto.getUsername());
+		return doGenerateToken(claims, user.getEmail());
 	}
 
 	public Boolean validateToken(String token, UserDetails userDetails) {

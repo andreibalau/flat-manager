@@ -20,24 +20,25 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CreateAsociationService {
 
-    private final AsociationRepository asociationRepository;
-    private final CityRepository cityRepository;
-    private final RegisterService registerService;
-    private final AsociationConverter converter;
+	private final AsociationRepository asociationRepository;
+	private final CityRepository cityRepository;
+	private final RegisterService registerService;
+	private final AsociationConverter converter;
 
-    public EntityCreatedResponse create(CreateAsociationRequest request) {
-        User user = registerService.registerAndReturn(request.getUser());
-        Asociation asociation = converter.fromCreateAsociationRequestToAsociation(request);
-        asociation.setCity(findCity(request.getCityId()));
-        asociation.setPresident(user);
-        Long id = asociationRepository.save(asociation).getId();
-        return new EntityCreatedResponse(id);
-    }
+	public EntityCreatedResponse create(CreateAsociationRequest request) {
+		User user = registerService.registerAndReturn(request.getUser());
+		Asociation asociation = converter.fromCreateAsociationRequestToAsociation(request);
+		asociation.setCity(findCity(request.getCityId()));
+		asociation.setPresident(user);
+		Long id = asociationRepository.save(asociation)
+				.getId();
+		return new EntityCreatedResponse(id);
+	}
 
-    private City findCity(Long id) {
-        return cityRepository
-                .findById(id)
-                .orElse(null);
-    }
+	private City findCity(Long id) {
+		return cityRepository
+				.findById(id)
+				.orElse(null);
+	}
 
 }

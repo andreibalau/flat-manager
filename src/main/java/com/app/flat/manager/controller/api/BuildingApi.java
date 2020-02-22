@@ -24,23 +24,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * Created by catalin on 06.02.2020
  */
 @RequestMapping(
-        value = "/api/v1/buildings",
-        consumes = APPLICATION_JSON_VALUE,
-        produces = APPLICATION_JSON_VALUE)
+		value = "/api/v1/buildings",
+		consumes = APPLICATION_JSON_VALUE,
+		produces = APPLICATION_JSON_VALUE)
 public interface BuildingApi {
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    EntityCreatedResponse create(@RequestBody @Valid CreateBuildingRequest request);
+	@ResponseStatus(HttpStatus.CREATED)
+	@PostMapping
+	EntityCreatedResponse create(@RequestBody @Valid CreateBuildingRequest request);
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/{id}")
-    void delete(@PathVariable Long id);
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping(value = "/{id}")
+	void delete(@PathVariable Long id);
 
-    @GetMapping(value = "/{id}")
-    BuildingResponse findById(@PathVariable Long id);
+	@GetMapping(value = "/{id}")
+	BuildingResponse findById(@PathVariable Long id);
 
-    @GetMapping
-    List<PreviewBuildingResponse> findAllByAsociation(@RequestParam Long asociationId);
+	@GetMapping
+	List<PreviewBuildingResponse> findAllByAsociation(@RequestParam Long asociationId);
 
 }

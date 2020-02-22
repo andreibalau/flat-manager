@@ -16,25 +16,25 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class RegisterService {
 
-    private final EmailCheckService emailCheckService;
-    private final UserRepository userRepository;
-    private final UserConverter userConverter;
+	private final EmailCheckService emailCheckService;
+	private final UserRepository userRepository;
+	private final UserConverter userConverter;
 
-    public void register(RegisterUserRequest request) {
-        createUser(request);
-    }
+	public void register(RegisterUserRequest request) {
+		createUser(request);
+	}
 
-    public User registerAndReturn(RegisterUserRequest request) {
-        return createUser(request);
-    }
+	public User registerAndReturn(RegisterUserRequest request) {
+		return createUser(request);
+	}
 
-    private User createUser(RegisterUserRequest request) {
-        boolean exists = emailCheckService.exists(request.getEmail());
-        if (exists) {
-            throw UserException.emailAlreadyExists();
-        }
-        User user = userConverter.fromRegisterUserRequestToUser(request);
-        return userRepository.save(user);
-    }
+	private User createUser(RegisterUserRequest request) {
+		boolean exists = emailCheckService.exists(request.getEmail());
+		if (exists) {
+			throw UserException.emailAlreadyExists();
+		}
+		User user = userConverter.fromRegisterUserRequestToUser(request);
+		return userRepository.save(user);
+	}
 
 }

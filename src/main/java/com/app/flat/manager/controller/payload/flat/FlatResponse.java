@@ -17,21 +17,21 @@ import lombok.Setter;
 @Setter
 public class FlatResponse {
 
-    @NotNull
-    private Long id;
-    @NotBlank
-    private String name;
-    @NotNull
-    private Integer number;
-    @NotNull
-    private Integer numberOfPersons;
-    @NotNull
-    private Double totalSurface;
-    @NotNull
-    private Double usedSurface;
-    @NotNull
-    private Set<@NotNull @Valid ContorResponse> contors;
-    @NotNull
-    private Set<@NotNull @Valid UserResponse> users;
+	@NotNull
+	private Long id;
+	@NotBlank
+	private String name;
+	@NotNull
+	private Integer number;
+	@NotNull
+	private Integer numberOfPersons;
+	@NotNull
+	private Double totalSurface;
+	@NotNull
+	private Double usedSurface;
+	@NotNull
+	private Set<@NotNull @Valid ContorResponse> contors;
+	@NotNull
+	private Set<@NotNull @Valid UserResponse> users;
 
 }

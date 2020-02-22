@@ -7,4 +7,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * Flat Manager
  * Created by catalin on 2/9/2020
  */
-public interface UtilityRepository extends JpaRepository<Utility, Long> { }
+public interface UtilityRepository extends JpaRepository<Utility, Long> {
+}

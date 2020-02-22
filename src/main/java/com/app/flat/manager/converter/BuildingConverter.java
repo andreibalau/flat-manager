@@ -30,5 +30,4 @@ public class BuildingConverter extends BaseConverter {
 		return map(request, Building.class);
 	}
 
-
 }

@@ -14,10 +14,10 @@ import lombok.Setter;
 @Setter
 public class CreateStairRequest {
 
-    private Long buildingId;
-    @NotBlank
-    private String name;
-    @NotNull
-    private Long administratorId;
+	private Long buildingId;
+	@NotBlank
+	private String name;
+	@NotNull
+	private Long administratorId;
 
 }

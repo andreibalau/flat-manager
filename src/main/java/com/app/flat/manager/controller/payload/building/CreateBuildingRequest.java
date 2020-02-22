@@ -14,12 +14,12 @@ import lombok.Setter;
 @Setter
 public class CreateBuildingRequest {
 
-    @NotNull
-    private Long asociationId;
-    @NotBlank
-    private String name;
-    @NotBlank
-    private String address;
-    private Long cityId;
+	@NotNull
+	private Long asociationId;
+	@NotBlank
+	private String name;
+	@NotBlank
+	private String address;
+	private Long cityId;
 
 }

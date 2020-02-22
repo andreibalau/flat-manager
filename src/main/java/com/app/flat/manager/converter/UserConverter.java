@@ -1,7 +1,6 @@
 package com.app.flat.manager.converter;
 
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
-import com.app.flat.manager.converter.BaseConverter;
 import com.app.flat.manager.model.user.User;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

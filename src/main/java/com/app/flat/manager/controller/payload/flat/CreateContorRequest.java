@@ -2,7 +2,6 @@ package com.app.flat.manager.controller.payload.flat;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-
 import java.math.BigDecimal;
 
 import com.app.flat.manager.model.utility.UtilityType;

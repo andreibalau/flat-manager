@@ -1,12 +1,12 @@
 package com.app.flat.manager.controller.payload.user;
 
-import com.app.flat.manager.model.user.Role;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.app.flat.manager.model.user.Role;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager

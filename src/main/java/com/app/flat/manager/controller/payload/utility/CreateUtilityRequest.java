@@ -3,8 +3,8 @@ package com.app.flat.manager.controller.payload.utility;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import com.app.flat.manager.model.utility.UtilityType;
 import com.app.flat.manager.model.utility.Uom;
+import com.app.flat.manager.model.utility.UtilityType;
 import lombok.Getter;
 import lombok.Setter;
 

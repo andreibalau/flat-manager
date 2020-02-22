@@ -18,14 +18,14 @@ import lombok.Setter;
 @Setter
 public class StairResponse {
 
-    @NotNull
-    private Long id;
-    @NotBlank
-    private String name;
-    @NotNull
-    private Long buildingId;
-    @NotNull
-    private Set<@NotNull @Valid FlatResponse> flats;
-    private UserResponse administrator;
+	@NotNull
+	private Long id;
+	@NotBlank
+	private String name;
+	@NotNull
+	private Long buildingId;
+	@NotNull
+	private Set<@NotNull @Valid FlatResponse> flats;
+	private UserResponse administrator;
 
 }

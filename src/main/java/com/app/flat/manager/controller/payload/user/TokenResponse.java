@@ -1,24 +1,23 @@
 package com.app.flat.manager.controller.payload.user;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
  * Flat Manager
- * Created by catalin on 06.02.2020
+ * Created by catalin on 2/22/2020
  */
 @Getter
 @Setter
-public class UserResponse {
+@NoArgsConstructor
+@AllArgsConstructor
+public class TokenResponse {
 
-	@NotNull
-	private Long id;
 	@NotBlank
-	private String firstName;
-	@NotBlank
-	private String lastName;
+	private String token;
 
 }

@@ -24,23 +24,23 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  * Created by catalin on 06.02.2020
  */
 @RequestMapping(
-        value = "/api/v1/stairs",
-        consumes = APPLICATION_JSON_VALUE,
-        produces = APPLICATION_JSON_VALUE)
+		value = "/api/v1/stairs",
+		consumes = APPLICATION_JSON_VALUE,
+		produces = APPLICATION_JSON_VALUE)
 public interface StairApi {
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    EntityCreatedResponse create(@RequestBody @Valid CreateStairRequest request);
+	@ResponseStatus(HttpStatus.CREATED)
+	@PostMapping
+	EntityCreatedResponse create(@RequestBody @Valid CreateStairRequest request);
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/{id}")
-    void delete(@PathVariable Long id);
+	@ResponseStatus(HttpStatus.NO_CONTENT)
+	@DeleteMapping(value = "/{id}")
+	void delete(@PathVariable Long id);
 
-    @GetMapping(value = "/{id}")
-    StairResponse findById(@PathVariable Long id);
+	@GetMapping(value = "/{id}")
+	StairResponse findById(@PathVariable Long id);
 
-    @GetMapping
-    List<PreviewStairResponse> findAllByBuilding(@RequestParam Long buildingId);
+	@GetMapping
+	List<PreviewStairResponse> findAllByBuilding(@RequestParam Long buildingId);
 
 }

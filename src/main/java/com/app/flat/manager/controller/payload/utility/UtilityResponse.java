@@ -1,12 +1,12 @@
 package com.app.flat.manager.controller.payload.utility;
 
-import com.app.flat.manager.model.utility.UtilityType;
-import com.app.flat.manager.model.utility.Uom;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
+
+import com.app.flat.manager.model.utility.Uom;
+import com.app.flat.manager.model.utility.UtilityType;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager

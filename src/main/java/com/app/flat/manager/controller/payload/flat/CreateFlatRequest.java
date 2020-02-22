@@ -16,21 +16,21 @@ import lombok.Setter;
 @Setter
 public class CreateFlatRequest {
 
-    @NotBlank
-    private String name;
-    @NotNull
-    private Integer number;
-    @NotNull
-    private Integer numberOfPersons;
-    @NotNull
-    private Double totalSurface;
-    @NotNull
-    private Double usedSurface;
-    @NotNull
-    private Set<@NotNull @Valid CreateContorRequest> contors;
-    @NotNull
-    private Set<@NotNull Long> userIds;
-    @NotNull
-    private Long stairId;
+	@NotBlank
+	private String name;
+	@NotNull
+	private Integer number;
+	@NotNull
+	private Integer numberOfPersons;
+	@NotNull
+	private Double totalSurface;
+	@NotNull
+	private Double usedSurface;
+	@NotNull
+	private Set<@NotNull @Valid CreateContorRequest> contors;
+	@NotNull
+	private Set<@NotNull Long> userIds;
+	@NotNull
+	private Long stairId;
 
 }

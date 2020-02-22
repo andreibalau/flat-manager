@@ -18,16 +18,16 @@ import lombok.Setter;
 @Setter
 public class BuildingResponse {
 
-    @NotNull
-    private Long id;
-    @NotBlank
-    private String name;
-    @NotNull
-    private Long asociationId;
-    @NotBlank
-    private String address;
-    @NotNull
-    private Set<@NotNull @Valid StairResponse> stairs;
-    private CityResponse city;
+	@NotNull
+	private Long id;
+	@NotBlank
+	private String name;
+	@NotNull
+	private Long asociationId;
+	@NotBlank
+	private String address;
+	@NotNull
+	private Set<@NotNull @Valid StairResponse> stairs;
+	private CityResponse city;
 
 }

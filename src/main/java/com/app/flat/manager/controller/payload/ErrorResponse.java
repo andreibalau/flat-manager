@@ -1,11 +1,11 @@
 package com.app.flat.manager.controller.payload;
 
+import javax.validation.constraints.NotBlank;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import javax.validation.constraints.NotBlank;
 
 /**
  * Flat Manager
@@ -17,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 @AllArgsConstructor
 public class ErrorResponse {
 
-    @NotBlank
-    private String message;
+	@NotBlank
+	private String message;
 
 }

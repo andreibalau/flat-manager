@@ -1,11 +1,5 @@
 package com.app.flat.manager.model.building;
 
-import com.app.flat.manager.model.address.City;
-import com.app.flat.manager.model.asociation.Asociation;
-import com.app.flat.manager.model.stair.Stair;
-import lombok.Getter;
-import lombok.Setter;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +13,12 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.app.flat.manager.model.address.City;
+import com.app.flat.manager.model.asociation.Asociation;
+import com.app.flat.manager.model.stair.Stair;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Flat Manager
