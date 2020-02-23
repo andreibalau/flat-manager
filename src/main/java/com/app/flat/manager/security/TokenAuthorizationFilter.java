@@ -91,6 +91,6 @@ public class TokenAuthorizationFilter extends OncePerRequestFilter {
 		response.getWriter()
 				.write(new ObjectMapper().writeValueAsString(new ErrorResponse(message)));
 		response.addHeader(CONTENT_TYPE, APPLICATION_JSON_VALUE);
-		response.setStatus(HttpStatus.BAD_REQUEST.value());
+		response.setStatus(HttpStatus.UNAUTHORIZED.value());
 	}
 }

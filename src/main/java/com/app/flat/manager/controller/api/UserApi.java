@@ -7,7 +7,10 @@ import javax.validation.Valid;
 import com.app.flat.manager.controller.payload.user.LoginUserRequest;
 import com.app.flat.manager.controller.payload.user.LoginUserResponse;
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
+import com.app.flat.manager.controller.payload.user.UserProfileResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,5 +32,8 @@ public interface UserApi {
 
 	@PostMapping("/login")
 	LoginUserResponse login(@RequestBody LoginUserRequest request);
+
+	@GetMapping("/{id}")
+	UserProfileResponse getProfile(@PathVariable Long id);
 
 }

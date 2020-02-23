@@ -1,7 +1,5 @@
 package com.app.flat.manager.service.user;
 
-import java.util.Collections;
-
 import com.app.flat.manager.controller.payload.user.RegisterUserRequest;
 import com.app.flat.manager.converter.UserConverter;
 import com.app.flat.manager.exception.UserException;
@@ -37,7 +35,6 @@ public class RegisterService {
 		}
 		User user = userConverter.fromRegisterUserRequestToUser(request);
 		user.setPaid(false);
-		user.setRoles(Collections.singleton(request.getRole()));
 		return userRepository.save(user);
 	}
 

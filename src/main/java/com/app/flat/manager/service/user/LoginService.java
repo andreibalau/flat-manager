@@ -23,7 +23,7 @@ public class LoginService {
 		User user = findUserService.findUserOrThrow(request.getUsername());
 		validatePassword(request, user);
 		String token = jwtTokenUtil.generateToken(user);
-		return new LoginUserResponse(user.getId(), token, user.getRoles());
+		return new LoginUserResponse(user.getId(), token, user.getRole());
 	}
 
 	private void validatePassword(LoginUserRequest request, User user) {

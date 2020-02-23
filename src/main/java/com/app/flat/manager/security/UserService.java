@@ -1,8 +1,7 @@
 package com.app.flat.manager.security;
 
-import static java.util.stream.Collectors.toList;
-
 import java.util.Collection;
+import java.util.Collections;
 
 import com.app.flat.manager.exception.UserException;
 import com.app.flat.manager.model.user.User;
@@ -33,10 +32,9 @@ public class UserService implements UserDetailsService {
 	}
 
 	private Collection<? extends GrantedAuthority> getRoles(User user) {
-		return user.getRoles()
-				.stream()
-				.map(role -> new SimpleGrantedAuthority(role.name()))
-				.collect(toList());
-
+		return Collections.singletonList(
+				new SimpleGrantedAuthority(user
+						.getRole()
+						.name()));
 	}
 }

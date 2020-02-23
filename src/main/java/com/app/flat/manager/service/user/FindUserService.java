@@ -3,6 +3,8 @@ package com.app.flat.manager.service.user;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.app.flat.manager.controller.payload.user.UserProfileResponse;
+import com.app.flat.manager.converter.UserConverter;
 import com.app.flat.manager.exception.UserException;
 import com.app.flat.manager.model.user.User;
 import com.app.flat.manager.repository.UserRepository;
@@ -18,6 +20,12 @@ import org.springframework.stereotype.Service;
 public class FindUserService {
 
 	private final UserRepository userRepository;
+	private final UserConverter userConverter;
+
+	public UserProfileResponse getProfile(Long id) {
+		return userConverter
+				.fromUserToUserProfileProfile(findUserOrThrow(id));
+	}
 
 	public User findUserOrThrow(Long id) {
 		return userRepository
