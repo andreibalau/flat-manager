@@ -5,9 +5,11 @@ import javax.validation.constraints.NotNull;
 
 import com.app.flat.manager.model.user.Role;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.lang.Nullable;
 
 /**
  * Flat Manager
@@ -15,6 +17,7 @@ import lombok.Setter;
  */
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class LoginUserResponse {
@@ -25,5 +28,7 @@ public class LoginUserResponse {
 	private String token;
 	@NotNull
 	private Role role;
+	@Nullable
+	private Long asociationId;
 
 }
