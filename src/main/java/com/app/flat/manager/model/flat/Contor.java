@@ -39,7 +39,7 @@ public class Contor {
 	@Column(nullable = false, name = "contor_type")
 	private UtilityType type;
 	@NotBlank
-	@Column(nullable = false, name = "serial")
+	@Column(nullable = false, name = "serial", unique = true)
 	private String serial;
 	@NotNull
 	@Column(nullable = false, name = "initial_index")

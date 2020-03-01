@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="01_create_countries_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="countries" />
+            </not>
+        </preConditions>
+        <createTable tableName="countries">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_countries" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="02_create_counties_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="counties" />
+            </not>
+        </preConditions>
+        <createTable tableName="counties">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_counties" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="abbrev" type="VARCHAR(10)" >
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="country_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_counties_countries" references="countries(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="03_create_cities_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="cities" />
+            </not>
+        </preConditions>
+        <createTable tableName="cities">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_cities" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="county_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_cities_counties" references="counties(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="04_create_utilities_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="utilities" />
+            </not>
+        </preConditions>
+        <createTable tableName="utilities">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_utilities" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="uom" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="utility_type" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="price" type="DOUBLE" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="05_create_users_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="users" />
+            </not>
+        </preConditions>
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_users" />
+            </column>
+            <column name="first_name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="VARCHAR(100)" >
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="phone" type="VARCHAR(15)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="user_role" type="VARCHAR(30)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="is_paid" type="BOOL" >
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="06_create_asociations_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="asociations" />
+            </not>
+        </preConditions>
+        <createTable tableName="asociations">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_asociations" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="address" type="VARCHAR(500)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="president_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_asociations_users" references="users(id)" />
+            </column>
+            <column name="city_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_asociations_cities" references="cities(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="07_create_asociations_utilities_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="asociations_utilities" />
+            </not>
+        </preConditions>
+        <createTable tableName="asociations_utilities">
+            <column name="utility_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_asociations_utilities_utilities" references="utilities(id)" />
+            </column>
+            <column name="asociation_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_asociations_utilities_asociations" references="asociations(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="08_create_buildings_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="buildings" />
+            </not>
+        </preConditions>
+        <createTable tableName="buildings">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_buildings" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="address" type="VARCHAR(500)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="asociation_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_buildings_asociations" references="asociations(id)" />
+            </column>
+            <column name="city_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_buildings_cities" references="cities(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="09_create_stairs_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="stairs" />
+            </not>
+        </preConditions>
+        <createTable tableName="stairs">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_stairs" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="administrator_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_stairs_users" references="users(id)" />
+            </column>
+            <column name="building_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_stairs_buildings" references="buildings(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="10_create_flats_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="flats" />
+            </not>
+        </preConditions>
+        <createTable tableName="flats">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_flats" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="number" type="INTEGER" >
+                <constraints nullable="false" />
+            </column>
+            <column name="numberOfPersons" type="INTEGER" >
+                <constraints nullable="false" />
+            </column>
+            <column name="totalSurface" type="DOUBLE" >
+                <constraints nullable="false" />
+            </column>
+            <column name="usedSurface" type="DOUBLE" >
+                <constraints nullable="false" />
+            </column>
+            <column name="stair_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_flats_stairs" references="stairs(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="11_create_users_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="users" />
+            </not>
+        </preConditions>
+        <createTable tableName="users">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_users" />
+            </column>
+            <column name="first_name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="last_name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="email" type="VARCHAR(100)" >
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="phone" type="VARCHAR(15)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="password" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="user_role" type="VARCHAR(30)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="is_paid" type="BOOL" >
+                <constraints nullable="false" />
+            </column>
+            <column name="flat_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_users_flats" references="flats(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="12_create_contors_table" author="Catalin Matache">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="contors" />
+            </not>
+        </preConditions>
+        <createTable tableName="contors">
+            <column name="id" type="BIGINT" >
+                <constraints primaryKey="true" primaryKeyName="pk_contors" />
+            </column>
+            <column name="name" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="contor_type" type="VARCHAR(100)" >
+                <constraints nullable="false" />
+            </column>
+            <column name="serial" type="VARCHAR(100)" >
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="initial_index" type="DOUBLE" >
+                <constraints nullable="false" />
+            </column>
+            <column name="current_index" type="DOUBLE" >
+                <constraints nullable="false" />
+            </column>
+            <column name="flat_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_contors_flats" references="flats(id)" />
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="13_update_users_table" author="Catalin Matache">
+        <addColumn tableName="users">
+            <column name="flat_id" type="BIGINT" >
+                <constraints nullable="false" foreignKeyName="fk_users_flats" references="flats(id)" />
+            </column>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="14_create_index_counties_country_id" author="Catalin Matache">
+        <createIndex indexName="idx_counties_country_id" tableName="counties">
+            <column name="country_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="15_create_index_cities_county_id" author="Catalin Matache">
+        <createIndex indexName="idx_cities_county_id" tableName="cities">
+            <column name="county_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="16_create_index_asociations_president_id" author="Catalin Matache">
+        <createIndex indexName="idx_asociations_president_id" tableName="asociations">
+            <column name="president_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="17_create_index_asociations_city_id" author="Catalin Matache">
+        <createIndex indexName="idx_asociations_city_id" tableName="asociations">
+            <column name="city_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="18_create_index_asociations_utilities_asociation_id" author="Catalin Matache">
+        <createIndex indexName="idx_asociations_utilities_asociation_id" tableName="asociations_utilities">
+            <column name="asociation_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="19_create_index_asociations_utilities_utility_id" author="Catalin Matache">
+        <createIndex indexName="idx_asociations_utilities_utility_id" tableName="asociations_utilities">
+            <column name="utility_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="20_create_index_buildings_asociation_id" author="Catalin Matache">
+        <createIndex indexName="idx_buildings_asociation_id" tableName="buildings">
+            <column name="asociation_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="21_create_index_buildings_city_id" author="Catalin Matache">
+        <createIndex indexName="idx_buildings_city_id" tableName="buildings">
+            <column name="city_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="22_create_index_stairs_administrator_id" author="Catalin Matache">
+        <createIndex indexName="idx_stairs_administrator_id" tableName="stairs">
+            <column name="administrator_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="23_create_index_stairs_building_id" author="Catalin Matache">
+        <createIndex indexName="idx_stairs_building_id" tableName="stairs">
+            <column name="building_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="24_create_index_flats_stair_id" author="Catalin Matache">
+        <createIndex indexName="idx_flats_stair_id" tableName="flats">
+            <column name="stair_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="25_create_index_users_flat_id" author="Catalin Matache">
+        <createIndex indexName="idx_users_flat_id" tableName="users">
+            <column name="flat_id" />
+        </createIndex>
+    </changeSet>
+
+    <changeSet id="26_create_index_contors_flat_id" author="Catalin Matache">
+        <createIndex indexName="idx_contors_flat_id" tableName="contors">
+            <column name="flat_id" />
+        </createIndex>
+    </changeSet>
+
+</databaseChangeLog>

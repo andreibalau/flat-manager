@@ -1,6 +1,8 @@
 server:
   port: 8888
 spring:
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
   datasource:
     url: jdbc:postgresql://localhost:5432/flat
     driver-class-name: org.postgresql.Driver
@@ -10,7 +12,7 @@ spring:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     generate-ddl: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect

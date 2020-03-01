@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <changeSet id="01_insert_country_ro" author="Catalin Matache">
+        <insert tableName="countries" >
+            <column name="id" value="1" />
+            <column name="name" value="Romania"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="02_insert_county_ph" author="Catalin Matache">
+        <insert tableName="counties" >
+            <column name="id" value="1" />
+            <column name="abbrev" value="PH"/>
+            <column name="name" value="Prahova"/>
+            <column name="country_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="03_insert_county_bv" author="Catalin Matache">
+        <insert tableName="counties" >
+            <column name="id" value="2" />
+            <column name="abbrev" value="BV"/>
+            <column name="name" value="Brasov"/>
+            <column name="country_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="04_insert_county_cj" author="Catalin Matache">
+        <insert tableName="counties" >
+            <column name="id" value="3" />
+            <column name="abbrev" value="CJ"/>
+            <column name="name" value="Cluj"/>
+            <column name="country_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="05_insert_city_urlati" author="Catalin Matache">
+        <insert tableName="cities" >
+            <column name="id" value="1" />
+            <column name="name" value="Urlati"/>
+            <column name="county_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="06_insert_city_ploiesti" author="Catalin Matache">
+        <insert tableName="cities" >
+            <column name="id" value="2" />
+            <column name="name" value="Ploiesti"/>
+            <column name="county_id" value="1"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="07_insert_city_brasov" author="Catalin Matache">
+        <insert tableName="cities" >
+            <column name="id" value="3" />
+            <column name="name" value="Brasov"/>
+            <column name="county_id" value="2"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="08_insert_city_cluj" author="Catalin Matache">
+        <insert tableName="cities" >
+            <column name="id" value="4" />
+            <column name="name" value="Cluj"/>
+            <column name="county_id" value="3"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
