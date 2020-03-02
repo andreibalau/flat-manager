@@ -104,9 +104,7 @@
             <column name="email" type="VARCHAR(100)" >
                 <constraints nullable="false" unique="true" />
             </column>
-            <column name="phone" type="VARCHAR(15)" >
-                <constraints nullable="false" />
-            </column>
+            <column name="phone" type="VARCHAR(15)" />
             <column name="password" type="VARCHAR(100)" >
                 <constraints nullable="false" />
             </column>
@@ -223,13 +221,13 @@
             <column name="number" type="INTEGER" >
                 <constraints nullable="false" />
             </column>
-            <column name="numberOfPersons" type="INTEGER" >
+            <column name="number_of_persons" type="INTEGER" >
                 <constraints nullable="false" />
             </column>
-            <column name="totalSurface" type="DOUBLE" >
+            <column name="total_surface" type="DOUBLE" >
                 <constraints nullable="false" />
             </column>
-            <column name="usedSurface" type="DOUBLE" >
+            <column name="used_surface" type="DOUBLE" >
                 <constraints nullable="false" />
             </column>
             <column name="stair_id" type="BIGINT" >
@@ -238,44 +236,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="11_create_users_table" author="Catalin Matache">
-        <preConditions onFail="MARK_RAN">
-            <not>
-                <tableExists tableName="users" />
-            </not>
-        </preConditions>
-        <createTable tableName="users">
-            <column name="id" type="BIGINT" >
-                <constraints primaryKey="true" primaryKeyName="pk_users" />
-            </column>
-            <column name="first_name" type="VARCHAR(100)" >
-                <constraints nullable="false" />
-            </column>
-            <column name="last_name" type="VARCHAR(100)" >
-                <constraints nullable="false" />
-            </column>
-            <column name="email" type="VARCHAR(100)" >
-                <constraints nullable="false" unique="true" />
-            </column>
-            <column name="phone" type="VARCHAR(15)" >
-                <constraints nullable="false" />
-            </column>
-            <column name="password" type="VARCHAR(100)" >
-                <constraints nullable="false" />
-            </column>
-            <column name="user_role" type="VARCHAR(30)" >
-                <constraints nullable="false" />
-            </column>
-            <column name="is_paid" type="BOOL" >
-                <constraints nullable="false" />
-            </column>
-            <column name="flat_id" type="BIGINT" >
-                <constraints nullable="false" foreignKeyName="fk_users_flats" references="flats(id)" />
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="12_create_contors_table" author="Catalin Matache">
+    <changeSet id="11_create_contors_table" author="Catalin Matache">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="contors" />
@@ -306,87 +267,87 @@
         </createTable>
     </changeSet>
 
-    <changeSet id="13_update_users_table" author="Catalin Matache">
+    <changeSet id="12_update_users_table" author="Catalin Matache">
         <addColumn tableName="users">
             <column name="flat_id" type="BIGINT" >
-                <constraints nullable="false" foreignKeyName="fk_users_flats" references="flats(id)" />
+                <constraints nullable="true" foreignKeyName="fk_users_flats" references="flats(id)" />
             </column>
         </addColumn>
     </changeSet>
 
-    <changeSet id="14_create_index_counties_country_id" author="Catalin Matache">
+    <changeSet id="13_create_index_counties_country_id" author="Catalin Matache">
         <createIndex indexName="idx_counties_country_id" tableName="counties">
             <column name="country_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="15_create_index_cities_county_id" author="Catalin Matache">
+    <changeSet id="14_create_index_cities_county_id" author="Catalin Matache">
         <createIndex indexName="idx_cities_county_id" tableName="cities">
             <column name="county_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="16_create_index_asociations_president_id" author="Catalin Matache">
+    <changeSet id="15_create_index_asociations_president_id" author="Catalin Matache">
         <createIndex indexName="idx_asociations_president_id" tableName="asociations">
             <column name="president_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="17_create_index_asociations_city_id" author="Catalin Matache">
+    <changeSet id="16_create_index_asociations_city_id" author="Catalin Matache">
         <createIndex indexName="idx_asociations_city_id" tableName="asociations">
             <column name="city_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="18_create_index_asociations_utilities_asociation_id" author="Catalin Matache">
+    <changeSet id="17_create_index_asociations_utilities_asociation_id" author="Catalin Matache">
         <createIndex indexName="idx_asociations_utilities_asociation_id" tableName="asociations_utilities">
             <column name="asociation_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="19_create_index_asociations_utilities_utility_id" author="Catalin Matache">
+    <changeSet id="18_create_index_asociations_utilities_utility_id" author="Catalin Matache">
         <createIndex indexName="idx_asociations_utilities_utility_id" tableName="asociations_utilities">
             <column name="utility_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="20_create_index_buildings_asociation_id" author="Catalin Matache">
+    <changeSet id="19_create_index_buildings_asociation_id" author="Catalin Matache">
         <createIndex indexName="idx_buildings_asociation_id" tableName="buildings">
             <column name="asociation_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="21_create_index_buildings_city_id" author="Catalin Matache">
+    <changeSet id="20_create_index_buildings_city_id" author="Catalin Matache">
         <createIndex indexName="idx_buildings_city_id" tableName="buildings">
             <column name="city_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="22_create_index_stairs_administrator_id" author="Catalin Matache">
+    <changeSet id="21_create_index_stairs_administrator_id" author="Catalin Matache">
         <createIndex indexName="idx_stairs_administrator_id" tableName="stairs">
             <column name="administrator_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="23_create_index_stairs_building_id" author="Catalin Matache">
+    <changeSet id="22_create_index_stairs_building_id" author="Catalin Matache">
         <createIndex indexName="idx_stairs_building_id" tableName="stairs">
             <column name="building_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="24_create_index_flats_stair_id" author="Catalin Matache">
+    <changeSet id="23_create_index_flats_stair_id" author="Catalin Matache">
         <createIndex indexName="idx_flats_stair_id" tableName="flats">
             <column name="stair_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="25_create_index_users_flat_id" author="Catalin Matache">
+    <changeSet id="24_create_index_users_flat_id" author="Catalin Matache">
         <createIndex indexName="idx_users_flat_id" tableName="users">
             <column name="flat_id" />
         </createIndex>
     </changeSet>
 
-    <changeSet id="26_create_index_contors_flat_id" author="Catalin Matache">
+    <changeSet id="25_create_index_contors_flat_id" author="Catalin Matache">
         <createIndex indexName="idx_contors_flat_id" tableName="contors">
             <column name="flat_id" />
         </createIndex>
